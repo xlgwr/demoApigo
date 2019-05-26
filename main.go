@@ -6,6 +6,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/xlgwr/demoApigo/controllers"
 	_ "github.com/xlgwr/demoApigo/routers"
 )
 
@@ -24,6 +25,7 @@ func init() {
 }
 
 func main() {
+	beego.ErrorController(&controllers.ErrorController{})
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"

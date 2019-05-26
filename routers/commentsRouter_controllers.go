@@ -19,7 +19,7 @@ func init() {
     beego.GlobalControllerRouter["github.com/xlgwr/demoApigo/controllers:DemoUserController"] = append(beego.GlobalControllerRouter["github.com/xlgwr/demoApigo/controllers:DemoUserController"],
         beego.ControllerComments{
             Method: "Get",
-            Router: `/:id`,
+            Router: `/:id([0-9]+)`,
             AllowHTTPMethods: []string{"get"},
             MethodParams: param.Make(),
             Filters: nil,
