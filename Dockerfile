@@ -6,11 +6,11 @@ RUN go get github.com/tools/godep
 # Recompile the standard library without CGO
 RUN CGO_ENABLED=0 go install -a std
 
-ENV APP_DIR $GOPATH\src\github.com\xlgwr\demoApigo
+ENV APP_DIR $GOPATH/src/github.com/xlgwr/demoApigo
 RUN mkdir -p $APP_DIR
 
 # Set the entrypoint
-ENTRYPOINT (cd $APP_DIR && ./\src\github.com\xlgwr\demoApigo)
+ENTRYPOINT (cd $APP_DIR && ./demoApigo)
 ADD . $APP_DIR
 
 # Compile the binary and statically link
